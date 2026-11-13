@@ -1,0 +1,23 @@
+BERES RUMAH - WEBGL BUILD
+========================
+
+CARA MAIN (Windows)
+  1. Dobel-klik Serve-WebGL.bat
+  2. Browser terbuka otomatis di http://localhost:8080/
+  3. Tutup jendela hitam untuk menghentikan server.
+
+PENTING
+  Jangan dobel-klik index.html. Build WebGL wajib disajikan lewat
+  web server (http://), bukan file://. Itulah penyebab error
+  "Failed to download file Build/..." yang muncul sebelumnya.
+
+CARA UPLOAD KE INTERNET
+  Unggah SELURUH isi folder ini (index.html, Build, TemplateData,
+  StreamingAssets bila ada) ke hosting statis seperti itch.io,
+  Netlify, Vercel, atau GitHub Pages. Tidak perlu konfigurasi
+  header khusus karena kompresi build dimatikan.
+
+CATATAN
+  - Progres pemain disimpan di IndexedDB browser (per origin).
+    Ganti port/domain = progres mulai dari awal.
+  - Build ini memakai nama file tanpa spasi supaya URL-nya aman.

@@ -1,0 +1,163 @@
+/* Template WebGL Beres Rumah
+   Canvas selalu 16:9 dan muat di jendela browser (tidak terpotong). */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #241c14;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#unity-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#unity-container.unity-desktop {
+  width: min(100vw, calc(100vh * 16 / 9));
+  height: min(100vh, calc(100vw * 9 / 16));
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.6);
+}
+
+#unity-container.unity-mobile {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#unity-fullscreen-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.unity-mobile #unity-fullscreen-container {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-canvas {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  outline: none;
+  background: #231F20;
+}
+
+/* ---------------- Layar muat ---------------- */
+
+#unity-loading-container {
+  position: absolute;
+  inset: 0;
+  display: none;
+  z-index: 5;
+  background: radial-gradient(circle at 50% 38%, #3d2d1f 0%, #241c14 72%);
+}
+
+#unity-loading-bar {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: min(420px, 68%);
+  text-align: center;
+}
+
+#unity-logo {
+  display: block;
+  width: min(340px, 78%);
+  height: auto;
+  margin: 0 auto 26px;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.45));
+}
+
+#unity-progress-bar-empty {
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(255, 245, 224, 0.16);
+  box-shadow: inset 0 0 0 2px rgba(255, 245, 224, 0.22);
+  overflow: hidden;
+}
+
+#unity-progress-bar-full {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #f0b93f, #ffd97d);
+  transition: width 0.12s linear;
+}
+
+#unity-loading-text {
+  margin-top: 14px;
+  color: #f6ead1;
+  font-size: 14px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+/* ---------------- Footer ---------------- */
+
+#unity-footer {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  z-index: 20;
+}
+
+.unity-mobile #unity-footer {
+  display: none;
+}
+
+#unity-logo-title-footer,
+#unity-build-title {
+  display: none;
+}
+
+#unity-fullscreen-button {
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  opacity: 0.45;
+  background: url('fullscreen-button.png') no-repeat center;
+  background-size: contain;
+  transition: opacity 0.15s ease;
+}
+
+#unity-fullscreen-button:hover {
+  opacity: 0.95;
+}
+
+#unity-warning {
+  position: fixed;
+  left: 50%;
+  top: 16px;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: none;
+  max-width: 90vw;
+}
+
+#unity-warning > div {
+  color: #2b2118;
+  background: #ffe9a8;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  margin-bottom: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+#diagnostics-icon {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
